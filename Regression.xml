@@ -1,0 +1,16 @@
+
+
+
+<suite name="Suite1" verbose="1">
+
+    <test name="Regression1">
+        <classes>
+            <class name="Tests.LoginTest"/>
+            <class name="Tests.LoginTest">
+            <methods>
+                <include name=" validLoginWithValidcredintional"/>
+                <include name="validLoginWithValidcredintional"/>
+            </methods>
+        </classes>
+    </test>
+</suite>
