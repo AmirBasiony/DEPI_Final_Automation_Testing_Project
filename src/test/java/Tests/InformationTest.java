@@ -6,6 +6,4 @@ public class InformationTest extends  TestBase{
     // Delievery "https://awesomeqa.com/ui/index.php?route=information/information&amp;information_id=6"
     // PrivacyPolicy "https://awesomeqa.com/ui/index.php?route=information/information&amp;information_id=3"
     // TermsCondition "https://awesomeqa.com/ui/index.php?route=information/information&amp;information_id=5"
-
-
 }
