@@ -93,12 +93,11 @@ public class UserProfileUpdateTest extends TestBase {
     @Test
     public void testUpdateMyAccountInformation()
     {
+        test = extent.createTest("Update Account Information Test", "This test validates updating the user's account information.");
         navigateMyAccountPage();
         updateAllAccountInfo();
         click_Continue();
         assertTheUpdateSuccess();
+//        extent.flush();
     }
-
 }
-
-

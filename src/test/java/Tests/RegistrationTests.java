@@ -5,21 +5,20 @@ import Pages.SecureAreaPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-
-public class RegistrationTests extends TestBase{
+public class RegistrationTests extends TestBase {
 
     RegistrationPage registrationPage;
     SecureAreaPage secureAreaPage;
-
 
     @BeforeClass
     public void preConditions() {
         registrationPage = new RegistrationPage(driver);
         secureAreaPage = new SecureAreaPage(driver);
-
     }
+
     @Test
     public void RegistrationPositiveScenario() {
+        test = extent.createTest("Positive Registration Test", "This test validates successful registration with valid data.");
 
         registrationPage.navigateToPage();
         registrationPage.openDropdown();
@@ -36,8 +35,8 @@ public class RegistrationTests extends TestBase{
     }
 
     @Test
-    public void RegistrationNegativeScenarioWithExistingEmail()
-    {
+    public void RegistrationNegativeScenarioWithExistingEmail() {
+        test = extent.createTest("Registration with Existing Email Test", "This test validates registration with an already existing email.");
 
         registrationPage.navigateToPage();
         registrationPage.openDropdown();
@@ -51,11 +50,11 @@ public class RegistrationTests extends TestBase{
         registrationPage.acceptprivacrpolicy();
         registrationPage.clickSubmitbtn();
         secureAreaPage.validateRegistrationWithInvalidData();
-
     }
 
     @Test
     public void RegistrationNegativeScenarioWithoutEmail() {
+        test = extent.createTest("Registration Without Email Test", "This test validates registration without entering an email.");
 
         registrationPage.navigateToPage();
         registrationPage.openDropdown();
@@ -71,9 +70,9 @@ public class RegistrationTests extends TestBase{
         secureAreaPage.validateRegistrationWithoutCompleteData();
     }
 
-
     @Test
     public void RegistrationNegativeScenarioWithoutMatchingPasswords() {
+        test = extent.createTest("Registration Without Matching Passwords Test", "This test validates registration with mismatched passwords.");
 
         registrationPage.navigateToPage();
         registrationPage.openDropdown();
@@ -87,11 +86,11 @@ public class RegistrationTests extends TestBase{
         registrationPage.acceptprivacrpolicy();
         registrationPage.clickSubmitbtn();
         secureAreaPage.validateRegistrationWithoutMatchingPasswords();
-
     }
 
     @Test
     public void RegistrationNegativeScenarioWithoutAcceptPolicy() {
+        test = extent.createTest("Registration Without Accepting Policy Test", "This test validates registration without accepting the privacy policy.");
 
         registrationPage.navigateToPage();
         registrationPage.openDropdown();
@@ -105,6 +104,4 @@ public class RegistrationTests extends TestBase{
         registrationPage.clickSubmitbtn();
         secureAreaPage.validateRegistrationWithInvalidData();
     }
-
-
 }

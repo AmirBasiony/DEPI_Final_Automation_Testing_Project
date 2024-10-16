@@ -34,6 +34,7 @@ public class UserLogoutTest  extends TestBase {
     @Test
     public void pressLogoutButton()
     {
+        test = extent.createTest("Logout Test", "This test validates the logout functionality.");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         loginToHomePage();

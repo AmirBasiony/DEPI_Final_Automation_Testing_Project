@@ -36,6 +36,8 @@ public class CompareProductTest extends TestBase {
     @Test
     public void compareProduct()
     {
+        test = extent.createTest("Compare Product Test", "This test validates the product comparison feature.");
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         loginToHomePage();
 
