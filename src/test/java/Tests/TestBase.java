@@ -21,6 +21,7 @@ public class TestBase {
     public void preconditions(){
         // 1- Open Browser
         driver= new ChromeDriver();
+
         homePage_object= new HomePage(driver);
         orderPage_object= new OrderPage(driver);
         ForgetPassPage_Object = new ForgetPassPage(driver);
@@ -29,7 +30,7 @@ public class TestBase {
     }
 
     @AfterClass
-    public void CloseBroswer(){
+    public void CloseBrowser(){
         // 7- Close Browser
         driver.close();
     }
