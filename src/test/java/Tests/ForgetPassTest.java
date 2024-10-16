@@ -67,10 +67,14 @@ package Tests;
 import Pages.ForgetPassPage;
 import Pages.HomePage;
 import Pages.OrderPage;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -78,16 +82,21 @@ public class ForgetPassTest {
 
     WebDriver driver;
     ForgetPassPage forgetPassPage_object;
+    ExtentTest test;
+    ExtentReports extent = new ExtentReports();
 
-    @BeforeMethod
-    public void setUp() {
-        forgetPassPage_object = new ForgetPassPage(driver);
+    @BeforeClass
+    public void preconditions()
+    {
+        ExtentSparkReporter spark = new ExtentSparkReporter("target/spark.html");
+        extent.attachReporter(spark);
     }
 
     @Test
     public void enterNonExistEmail() {
         // Open Edge Browser
         driver = new EdgeDriver();
+        test = extent.createTest("Non-Existent Email Test", "This test validates the behavior when a non-existent email is entered.");
         runForgetPasswordTest("4564aasd89@56asdsd.asd", "NotExist");
     }
 
@@ -95,6 +104,7 @@ public class ForgetPassTest {
     public void enterExistEmail() {
         // Open Chrome Browser
         driver = new ChromeDriver();
+        test = extent.createTest("Existing Email Test", "This test validates the behavior when an existing email is entered.");
         runForgetPasswordTest("amirbasiony14@gmail.com", "Exist");
     }
 
@@ -120,6 +130,7 @@ public class ForgetPassTest {
     public void tearDown() {
         if (driver != null) {
             driver.close();
+            extent.flush();
         }
     }
 }
